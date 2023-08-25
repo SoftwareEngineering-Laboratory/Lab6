@@ -13,6 +13,13 @@ DB_PORT = os.environ['DB_PORT']
 conn = psycopg2.connect(
     f"dbname='{DB_NAME}' user='{DB_USER}' password='{DB_PASSWORD}' host='{DB_HOST}' port={DB_PORT}")
 
+# init db
+query = "CREATE TABLE IF NOT EXISTS users (id SERIAL PRIMARY KEY, name VARCHAR(100) NOT NULL, email VARCHAR(100) NOT NULL);"
+cursor = conn.cursor()
+cursor.execute(query)
+conn.commit()
+cursor.close()
+
 
 @app.route('/add', methods=['POST'])
 def add_to_db():
@@ -36,7 +43,7 @@ def get_from_db():
 
     users = []
     for row in rows:
-        user = {'name': row[0], 'email': row[1]}
+        user = {'name': row[1], 'email': row[2]}
         users.append(user)
 
     return jsonify({'users': users})
