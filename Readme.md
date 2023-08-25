@@ -39,11 +39,13 @@ GET REQUEST
 DEPLOYMENT DIAGRAM
 
 در تصویر زیر نیز نمودار مستقر سازی با زبان uml را می‌توانید مشاهده کنید.
+
 ![image](pictures/deployment-diagram.png)
 
 SERVICES LOGS
 
 در این تصویر می‌توانید لاگ میکروسرویس‌ها در هنگام بالا آمدن با استفاده از docker-compose را مشاهده کنید.
+
 ![image](pictures/logs.png)
 
 ---
